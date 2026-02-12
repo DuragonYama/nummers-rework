@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Custom scrollbar for preview section and textarea */
+.preview-scroll::-webkit-scrollbar,
+.ofa-scrollbar::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-scroll::-webkit-scrollbar-track,
+.ofa-scrollbar::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+  background: #181818;
+}
+
+.preview-scroll::-webkit-scrollbar-thumb,
+.ofa-scrollbar::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+  background: #B93939;
+  border-radius: 2px;
+}
+
+.preview-scroll::-webkit-scrollbar-thumb:hover,
+.ofa-scrollbar::-webkit-scrollbar-thumb:hover,
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #a33232;
+}
+
+/* Grid container with independent scrolling */
+.grid-container {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* Grid styling */
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.sticker-block {
+  aspect-ratio: 1;
+  border: 1px solid #333;
+  padding: 0.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  transition: border-color 0.15s ease;
+  cursor: pointer;
+  background-color: #1a1a1a;
+}
+
+.sticker-block:hover {
+  border-color: #555;
+}
+
+.sticker-block.selected {
+  background-color: #B93939;
+  border-color: #B93939;
+}
+
+.sticker-block.filled {
+  background-color: #1a3a1a;
+  border-color: #2d5a2d;
+}
+
+.sticker-block.filled.selected {
+  background-color: #B93939;
+  border-color: #B93939;
+}
+
+.sticker-block.cursor-default {
+  cursor: default;
+}
+
+.sticker-number {
+  text-align: left;
+  font-family: 'Courier New', monospace;
+  line-height: 1.2;
+  font-size: 0.65rem;
+}
+
+/* Input styling */
+textarea,
+input[type="file"] {
+  transition: border-color 0.15s ease;
+}
+
+/* Button styling - sharp, functional */
+button {
+  transition: background-color 0.15s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* File input custom styling */
+input[type="file"]::file-selector-button {
+  transition: background-color 0.15s ease;
+}
+
+/* Document tabs - scrollable horizontally */
+.doc-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid #333;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: #B93939 #181818;
+}
+
+/* Horizontal scrollbar styling for tabs */
+.doc-tabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.doc-tabs::-webkit-scrollbar-track {
+  background: #181818;
+}
+
+.doc-tabs::-webkit-scrollbar-thumb {
+  background: #B93939;
+  border-radius: 2px;
+}
+
+.doc-tabs::-webkit-scrollbar-thumb:hover {
+  background: #a33232;
+}
+
+.doc-tab {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #6b6b6b;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.doc-tab:hover {
+  color: #a0a0a0;
+}
+
+.doc-tab.active {
+  color: #B93939;
+  border-bottom-color: #B93939;
+}
+
+/* Toggle switch */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background-color: #333;
+  border: 1px solid #4a4a4a;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: inline-block;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background-color: #6b6b6b;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  transform: translateX(20px);
+  background-color: #B93939;
+}
+
+.toggle-switch input:checked ~ .toggle-bg {
+  background-color: #2a1515;
+}
+
+.toggle-label {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+  cursor: pointer;
+  user-select: none;
+}

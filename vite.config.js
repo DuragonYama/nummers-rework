@@ -9,7 +9,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['template.docx'],
       manifest: {
-        name: 'OFA Sticker Generator',
+        name: 'OFA Stickers',
         short_name: 'OFA Stickers',
         description: 'USB Sticker Generator voor OFA',
         theme_color: '#B93939',
